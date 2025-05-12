@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.getElementById('gallery');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxSpinner = document.getElementById('lightbox-spinner');
     const lightboxCaption = document.querySelector('.lightbox-caption');
     const closeBtn = document.querySelector('.close');
     const prevPreview = document.getElementById('prev-preview');
@@ -73,10 +74,27 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryItem.className = 'gallery-item';
             galleryItem.setAttribute('data-index', index);
             
+            // Add loading spinner
+            const spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            galleryItem.appendChild(spinner);
+            
             const img = document.createElement('img');
-            img.src = item.thumbnail;
             img.alt = item.title;
             img.loading = 'lazy';
+            
+            // Handle image loading
+            img.onload = function() {
+                galleryItem.classList.add('loaded');
+                img.style.opacity = 1;
+            };
+            
+            // Set initial opacity to 0
+            img.style.opacity = 0;
+            img.style.transition = 'opacity 0.3s ease';
+            
+            // Set src after adding onload handler
+            img.src = item.thumbnail;
             
             galleryItem.appendChild(img);
             gallery.appendChild(galleryItem);
@@ -202,6 +220,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update lightbox content
     function updateLightboxContent() {
         const currentImage = filteredImages[currentImageIndex];
+        
+        // Reset image opacity and show spinner
+        lightboxImg.style.opacity = 0;
+        lightboxSpinner.style.display = 'block';
+        
+        // Set up onload handler before setting src
+        lightboxImg.onload = function() {
+            // Hide spinner and show image
+            lightboxSpinner.style.display = 'none';
+            lightboxImg.style.opacity = 1;
+        };
+        
+        // Set image src and alt
         lightboxImg.src = currentImage.src;
         lightboxImg.alt = currentImage.title;
         lightboxCaption.textContent = ''; // Remove caption text
