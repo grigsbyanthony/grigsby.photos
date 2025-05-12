@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>grigsby.photos</title>
+    <link rel="icon" type="image/png" href="favicon.PNG">
+    <link rel="apple-touch-icon" href="favicon.PNG">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>grigsby.photos</h1>
+        <nav>
+            <ul>
+                <li class="active" data-category="all">All</li>
+                <li data-category="macro">Macrophotography</li>
+                <li data-category="photography">Photography</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="gallery" id="gallery">
+            <!-- Images will be loaded here via JavaScript -->
+        </div>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-previews">
+                <div class="preview-container">
+                    <img id="prev-preview" src="" alt="Previous" class="preview-img">
+                </div>
+                <div class="preview-container">
+                    <img id="next-preview" src="" alt="Next" class="preview-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Anthony Grigsby. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
