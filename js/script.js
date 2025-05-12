@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryData = [];
     
     // Create ordered pairs of macro and photography images
-    for (let i = 1; i <= 36; i++) {
+    for (let i = 1; i <= 40; i++) {
         // Add Macrophotography image
         galleryData.push({
             id: i * 2 - 1, // Odd IDs for macro images
