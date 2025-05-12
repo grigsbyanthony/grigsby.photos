@@ -159,6 +159,22 @@ nav li.active {
     touch-action: manipulation; /* Better touch handling */
 }
 
+.close {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ddd;
+}
+
 .lightbox-caption {
     display: none; /* Hide the caption */
 }
@@ -277,6 +293,13 @@ footer {
     header {
         padding: 20px 0 10px;
     }
+    
+    .close {
+        font-size: 40px;
+        top: 20px;
+        right: 5px;
+        padding: 5px;
+    }
 }
 
 /* Additional mobile optimizations */
@@ -288,6 +311,13 @@ footer {
     .preview-container {
         width: 70px;
         height: 50px;
+    }
+    
+    .close {
+        font-size: 45px;
+        top: 15px;
+        right: 0;
+        padding: 8px;
     }
 }
 

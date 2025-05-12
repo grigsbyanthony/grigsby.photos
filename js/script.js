@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.querySelector('.lightbox-caption');
+    const closeBtn = document.querySelector('.close');
     const prevPreview = document.getElementById('prev-preview');
     const nextPreview = document.getElementById('next-preview');
     const prevPreviewContainer = prevPreview.parentElement;
@@ -93,7 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close lightbox when clicking outside the image
+        // Close lightbox when clicking outside the image or on X button
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+        
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
