@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Add corresponding Photography image if it exists (for 1-1.jpg to 6-1.jpg)
-        if (i <= 6) {
+        if (i <= 21) {
             galleryData.push({
                 id: i * 2, // Even IDs for photography images
                 src: `images/Photography/${i}-1.jpg`,
