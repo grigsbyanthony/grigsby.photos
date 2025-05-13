@@ -192,10 +192,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Shuffle array using Fisher-Yates algorithm
+    function shuffleArray(array) {
+        const shuffled = [...array]; // Create a copy to avoid modifying the original
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+        }
+        return shuffled;
+    }
+
     // Filter gallery by category
     function filterGallery(category) {
         if (category === 'all') {
             filteredImages = [...galleryData];
+        } else if (category === 'random') {
+            // Shuffle all images
+            filteredImages = shuffleArray([...galleryData]);
         } else {
             filteredImages = galleryData.filter(item => item.category === category);
         }
